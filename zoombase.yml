@@ -1,0 +1,19 @@
+name: basic-demo
+description:
+tags:
+initialize:
+  outputs: ['yaml', 'csv']
+  plugins:
+    teads-curve: 
+      path: '@grnsft/if-unofficial-plugins'
+      method: TeadsCurve
+      global-config:
+        interpolation: spline
+tree:
+  children:
+    child-0:
+      defaults:
+        cpu/thermal-design-power: 100
+      pipeline:
+        - teads-curve
+      inputs:
