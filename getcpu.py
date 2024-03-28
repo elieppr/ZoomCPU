@@ -95,7 +95,7 @@ def get_zoom_processes():
     all_processes = psutil.process_iter(['pid', 'name'])
     
     # Filter processes containing "Zoom" in their name
-    zoom_processes = [proc for proc in all_processes if "Zoom" in proc.info['name']]
+    zoom_processes = [proc for proc in all_processes if "Crossy" in proc.info['name']]
     
     return zoom_processes
 
@@ -128,21 +128,50 @@ if __name__ == "__main__":
     #command = ["npx", "ie", "--manifest", ".\\co2js.yml", "--output", ".\\co2output.yml"]
     #command = ["C:\\Program Files\\nodejs\npx.cmd", "ie", "--manifest", "C:\\Users\\Eliana\\Documents\\GitHub\\if\\examples\\manifests\\co2js.yml", "--output", "C:\\Users\\Eliana\\Documents\\GitHub\\if\\examples\\manifests\\co2output.yml"]
 
-    # Define the directory containing npx
-    nodejs_path = "C:\\Program Files\\nodejs"
-    npx_path = os.path.join(nodejs_path, "npx.cmd")
+    # switch between Windows and MacOS
+    if os.name == 'nt':
+        ###------ Windows ------###
+        print('Windows')
+        # Define the directory containing npx
+        nodejs_path = "C:\\Program Files\\nodejs"
+        npx_path = os.path.join(nodejs_path, "npx.cmd")
+        
+        #command = ["C:\\Users\\Eliana\\AppData\\Roaming\\npm\\ie.cmd", "--manifest", "C:\\Users\\Eliana\\Documents\\GitHub\\if\\examples\\manifests\\co2js.yml", "--output", "C:\\Users\\Eliana\\Documents\\GitHub\\if\\examples\\manifests\\co2outputIE.yml"]
+        command = [npx_path,"ie",  "--manifest", ".\\zoom.yml", "--output", ".\\zoomOutput"]
+
+        # Call the command using subprocess.run()
+        result = subprocess.run(command, capture_output=True, text=True)
     
-    #command = ["C:\\Users\\Eliana\\AppData\\Roaming\\npm\\ie.cmd", "--manifest", "C:\\Users\\Eliana\\Documents\\GitHub\\if\\examples\\manifests\\co2js.yml", "--output", "C:\\Users\\Eliana\\Documents\\GitHub\\if\\examples\\manifests\\co2outputIE.yml"]
-    command = [npx_path,"ie",  "--manifest", ".\\zoom.yml", "--output", ".\\zoomOutput"]
+    else:
+        ###------ MacOS ------###
+        print('MacOS')
+        
+        # Define the directory containing npx
+        nodejs_path = "/usr/local/bin"
+        npx_path = os.path.join(nodejs_path, "npx")
 
-    # Call the command using subprocess.run()
-    result = subprocess.run(command, capture_output=True, text=True)
+        # Define the command as a list of strings
+        command = [npx_path,"ie",  "--manifest", "zoom.yml", "--output", "zoomOutput"]
 
-    # # Check if the command was successful
-    # if result.returncode == 0:
-    #     print("Command executed successfully.")
-    #     print("Output:")
-    #     print(result.stdout)
-    # else:
-    #     print("Error executing the command:")
-    #     print(result.stderr)
+        # Call the command using subprocess.run()
+        result = subprocess.run(command, capture_output=True, text=True)
+
+    # Check if the command was successful
+    if result.returncode == 0:
+        print("Command executed successfully.")
+        print("Output:")
+        print(result.stdout)
+    else:
+        print("Error executing the command:")
+        print(result.stderr)
+    
+
+
+    
+
+
+
+
+    
+
+

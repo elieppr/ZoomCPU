@@ -1,0 +1,78 @@
+description: null
+initialize:
+  plugins:
+    teads-curve:
+      global-config:
+        interpolation: spline
+      method: TeadsCurve
+      path: '@grnsft/if-unofficial-plugins'
+name: basic-demo
+tags: null
+tree:
+  children:
+    child-0:
+      defaults:
+        cpu/thermal-design-power: 100
+      inputs:
+        - cpu/utilization: 148.9
+          duration: 1
+          timestamp: 2024-03-27T18:31
+        - cpu/utilization: 149.3
+          duration: 1
+          timestamp: 2024-03-27T18:31
+        - cpu/utilization: 150.5
+          duration: 1
+          timestamp: 2024-03-27T18:31
+        - cpu/utilization: 149.4
+          duration: 1
+          timestamp: 2024-03-27T18:31
+        - cpu/utilization: 154.1
+          duration: 1
+          timestamp: 2024-03-27T18:31
+        - cpu/utilization: 149.6
+          duration: 1
+          timestamp: 2024-03-27T18:31
+        - cpu/utilization: 148.9
+          duration: 1
+          timestamp: 2024-03-27T18:31
+        - cpu/utilization: 153.7
+          duration: 1
+          timestamp: 2024-03-27T18:31
+        - cpu/utilization: 149.0
+          duration: 1
+          timestamp: 2024-03-27T18:31
+        - cpu/utilization: 151.4
+          duration: 1
+          timestamp: 2024-03-27T18:31
+        - cpu/utilization: 150.0
+          duration: 1
+          timestamp: 2024-03-27T18:31
+        - cpu/utilization: 149.0
+          duration: 1
+          timestamp: 2024-03-27T18:32
+        - cpu/utilization: 154.5
+          duration: 1
+          timestamp: 2024-03-27T18:32
+        - cpu/utilization: 149.6
+          duration: 1
+          timestamp: 2024-03-27T18:32
+        - cpu/utilization: 148.9
+          duration: 1
+          timestamp: 2024-03-27T18:32
+        - cpu/utilization: 152.3
+          duration: 1
+          timestamp: 2024-03-27T18:32
+        - cpu/utilization: 148.9
+          duration: 1
+          timestamp: 2024-03-27T18:32
+        - cpu/utilization: 151.3
+          duration: 1
+          timestamp: 2024-03-27T18:32
+        - cpu/utilization: 150.6
+          duration: 1
+          timestamp: 2024-03-27T18:32
+        - cpu/utilization: 150.7
+          duration: 1
+          timestamp: 2024-03-27T18:32
+      pipeline:
+        - teads-curve
