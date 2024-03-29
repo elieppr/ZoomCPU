@@ -4,6 +4,9 @@ import time
 import yaml
 import subprocess
 import shutil
+import pandas as pd
+import plotly.graph_objs as go
+import webbrowser
 
 class IndentDumper(yaml.Dumper):
     def increase_indent(self, flow=False, indentless=False):
@@ -32,6 +35,7 @@ def monitor_cpu_usage():
     delete_file("zoom.yml")
     delete_file("zoomOutput.yml")
     delete_file("zoomOutput.csv")
+    delete_file("trend_plot.html")
 
     input = []
     # Step 2: Read the contents of zoom.yml
@@ -59,7 +63,7 @@ def monitor_cpu_usage():
                 print(f"Error occurred while getting CPU usage of process '{name}' (PID: {pid}): {str(e)}")
                 continue  # Continue to the next iteration of the loop
         if total_cpu > 0:
-            input.append({"timestamp": time.strftime("%Y-%m-%dT%H:%M"), "duration": 1, "cpu/utilization": total_cpu})
+            input.append({"timestamp": time.strftime("%Y-%m-%dT%H:%M:%S"), "duration": 1, "cpu/utilization": total_cpu})
         
         # Update the data structure
         #data["tree"]["children"]["child-0"]["inputs"] = {"timestamp": time.strftime("%Y-%m-%dT%H:%M"), "duration": 10, "cpu/utilization": total_cpu}
@@ -95,10 +99,7 @@ def get_zoom_processes():
     all_processes = psutil.process_iter(['pid', 'name'])
     
     # Filter processes containing "Zoom" in their name
-    #zoom_processes = [proc for proc in all_processes if "Weather" in proc.info['name']]
-
-    # Filter processes to a specific name
-    zoom_processes = [proc for proc in all_processes if proc.info['name'] == "Weather"]
+    zoom_processes = [proc for proc in all_processes if "Zoom" in proc.info['name']]
     
     return zoom_processes
 
@@ -119,62 +120,67 @@ def get_process_cpu_usage(process_id):
 
 # Example usage
 if __name__ == "__main__":
-
-    #process_names = get_all_process_names()
-    #zoom_processes = get_zoom_processes()
     print("List of all running process names:")
-    #monitor_cpu_usage(zoom_processes)
-    #
     monitor_cpu_usage()
-
-    # Define the command as a list of strings
-    #command = ["npx", "ie", "--manifest", ".\\co2js.yml", "--output", ".\\co2output.yml"]
-    #command = ["C:\\Program Files\\nodejs\npx.cmd", "ie", "--manifest", "C:\\Users\\Eliana\\Documents\\GitHub\\if\\examples\\manifests\\co2js.yml", "--output", "C:\\Users\\Eliana\\Documents\\GitHub\\if\\examples\\manifests\\co2output.yml"]
-
-    # switch between Windows and MacOS
-    if os.name == 'nt':
-        ###------ Windows ------###
-        print('Windows')
-        # Define the directory containing npx
-        nodejs_path = "C:\\Program Files\\nodejs"
-        npx_path = os.path.join(nodejs_path, "npx.cmd")
-        
-        #command = ["C:\\Users\\Eliana\\AppData\\Roaming\\npm\\ie.cmd", "--manifest", "C:\\Users\\Eliana\\Documents\\GitHub\\if\\examples\\manifests\\co2js.yml", "--output", "C:\\Users\\Eliana\\Documents\\GitHub\\if\\examples\\manifests\\co2outputIE.yml"]
-        command = [npx_path,"ie",  "--manifest", ".\\zoom.yml", "--output", ".\\zoomOutput"]
-
-        # Call the command using subprocess.run()
-        result = subprocess.run(command, capture_output=True, text=True)
+    # Define the directory containing npx
+    nodejs_path = "C:\\Program Files\\nodejs"
+    npx_path = os.path.join(nodejs_path, "npx.cmd")
     
-    else:
-        ###------ MacOS ------###
-        print('MacOS')
-        
-        # Define the directory containing npx
-        nodejs_path = "/usr/local/bin"
-        npx_path = os.path.join(nodejs_path, "npx")
+    command = [npx_path,"ie",  "--manifest", ".\\zoom.yml", "--output", ".\\zoomOutput"]
 
-        # Define the command as a list of strings
-        command = [npx_path,"ie",  "--manifest", "zoom.yml", "--output", "zoomOutput"]
+    # Call the command using subprocess.run()
+    result = subprocess.run(command, capture_output=True, text=True)
 
-        # Call the command using subprocess.run()
-        result = subprocess.run(command, capture_output=True, text=True)
+    # # Read the CSV file
+    # df = pd.read_csv('zoomOutput.csv')
 
-    # Check if the command was successful
-    if result.returncode == 0:
-        print("Command executed successfully.")
-        print("Output:")
-        print(result.stdout)
-    else:
-        print("Error executing the command:")
-        print(result.stderr)
-    
+    # # Create a plotly figure
+    # fig = go.Figure()
+
+    # # Add a scatter plot with time as x-axis and value as y-axis
+    # fig.add_trace(go.Scatter(x=df['timestamp'], y=df['cpu/energy'], mode='lines+markers'))
+
+    # # Update layout
+    # fig.update_layout(title='Carbon emision', xaxis_title='Time', yaxis_title='Carbon')
+
+    # # Save the plot as an HTML file
+    # html_file = 'trend_plot.html'
+    # fig.write_html(html_file)
 
 
-    
+    # Read the CSV file
+    df = pd.read_csv('zoomOutput.csv')
 
+    # Create a plotly figure
+    fig = go.Figure()
 
+    # Add a scatter plot with time as x-axis and value as y-axis
+    fig.add_trace(go.Scatter(x=df['timestamp'], y=df['cpu/energy'], mode='lines+markers'))
 
+    # Update layout to set width and height
+    fig.update_layout(
+        title='Carbon Emission',
+        xaxis_title='Time',
+        yaxis_title='Carbon',
+        width=500,  # Set width to 50%
+        height=500  # Set height to 50%
+    )
 
-    
+    # Save the plot as an HTML file
+    html_file = 'trend_plot.html'
+    # fig.write_html(html_file)
 
+    # Append HTML content to the HTML file
+    with open(html_file, 'a') as f:
+        f.write('<div style="width: 100%; text-align: center;">')  # Start of div
+        f.write(fig.to_html(include_plotlyjs='cdn'))  # Plotly graph
+        f.write('<p style="margin-top: 20px;">This is a description of the carbon emission trend.</p>')  # Description paragraph
+        # f.write('<img src="image.jpg" alt="Image" style="width: 500px; margin-top: 20px;">')  # Image
+        f.write('</div>')  # End of div
 
+    # Get the current working directory
+    current_directory = os.getcwd()
+    full_path = os.path.join(current_directory, html_file)
+
+    # Open the HTML file in a web browser
+    webbrowser.open('file://' + full_path)
