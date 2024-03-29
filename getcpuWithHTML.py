@@ -122,14 +122,40 @@ def get_process_cpu_usage(process_id):
 if __name__ == "__main__":
     print("List of all running process names:")
     monitor_cpu_usage()
-    # Define the directory containing npx
-    nodejs_path = "C:\\Program Files\\nodejs"
-    npx_path = os.path.join(nodejs_path, "npx.cmd")
-    
-    command = [npx_path,"ie",  "--manifest", ".\\zoom.yml", "--output", ".\\zoomOutput"]
 
-    # Call the command using subprocess.run()
-    result = subprocess.run(command, capture_output=True, text=True)
+    if os.name == 'nt':
+        ###------ Windows ------###
+        print('Windows')
+        # Define the directory containing npx
+        nodejs_path = "C:\\Program Files\\nodejs"
+        npx_path = os.path.join(nodejs_path, "npx.cmd")
+        
+        command = [npx_path,"ie",  "--manifest", ".\\zoom.yml", "--output", ".\\zoomOutput"]
+
+        # Call the command using subprocess.run()
+        result = subprocess.run(command, capture_output=True, text=True)
+    else:
+        ###------ MacOS ------###
+        print('MacOS')
+        
+        # Define the directory containing npx
+        nodejs_path = "/usr/local/bin"
+        npx_path = os.path.join(nodejs_path, "npx")
+
+        # Define the command as a list of strings
+        command = [npx_path,"ie",  "--manifest", "zoom.yml", "--output", "zoomOutput"]
+
+        # Call the command using subprocess.run()
+        result = subprocess.run(command, capture_output=True, text=True)
+
+    # Check if the command was successful
+    if result.returncode == 0:
+        print("Command executed successfully.")
+        print("Output:")
+        print(result.stdout)
+    else:
+        print("Error executing the command:")
+        print(result.stderr)
 
     # # Read the CSV file
     # df = pd.read_csv('zoomOutput.csv')
