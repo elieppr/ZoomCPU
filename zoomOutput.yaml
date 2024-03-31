@@ -1,0 +1,78 @@
+name: basic-demo
+description: null
+tags: null
+initialize:
+  plugins:
+    teads-curve:
+      path: '@grnsft/if-unofficial-plugins'
+      method: TeadsCurve
+      global-config:
+        interpolation: spline
+  outputs:
+    - yaml
+if-version: v0.3.1
+tree:
+  children:
+    child-0:
+      defaults:
+        cpu/thermal-design-power: 100
+      inputs:
+        - cpu/utilization: 1.1
+          duration: 1
+          timestamp: '2024-03-31T16:38:27'
+        - cpu/utilization: 0.9
+          duration: 1
+          timestamp: '2024-03-31T16:38:29'
+        - cpu/utilization: 0.8
+          duration: 1
+          timestamp: '2024-03-31T16:38:31'
+        - cpu/utilization: 1
+          duration: 1
+          timestamp: '2024-03-31T16:38:33'
+        - cpu/utilization: 0.9
+          duration: 1
+          timestamp: '2024-03-31T16:38:35'
+        - cpu/utilization: 0.8
+          duration: 1
+          timestamp: '2024-03-31T16:38:37'
+        - cpu/utilization: 0.9
+          duration: 1
+          timestamp: '2024-03-31T16:38:39'
+      pipeline:
+        - teads-curve
+      outputs:
+        - cpu/utilization: 1.1
+          duration: 1
+          timestamp: '2024-03-31T16:38:27'
+          cpu/thermal-design-power: 100
+          cpu/energy: 0.00000397115154454607
+        - cpu/utilization: 0.9
+          duration: 1
+          timestamp: '2024-03-31T16:38:29'
+          cpu/thermal-design-power: 100
+          cpu/energy: 0.0000038552730726626024
+        - cpu/utilization: 0.8
+          duration: 1
+          timestamp: '2024-03-31T16:38:31'
+          cpu/thermal-design-power: 100
+          cpu/energy: 0.000003797313192411925
+        - cpu/utilization: 1
+          duration: 1
+          timestamp: '2024-03-31T16:38:33'
+          cpu/thermal-design-power: 100
+          cpu/energy: 0.0000039132196815718165
+        - cpu/utilization: 0.9
+          duration: 1
+          timestamp: '2024-03-31T16:38:35'
+          cpu/thermal-design-power: 100
+          cpu/energy: 0.0000038552730726626024
+        - cpu/utilization: 0.8
+          duration: 1
+          timestamp: '2024-03-31T16:38:37'
+          cpu/thermal-design-power: 100
+          cpu/energy: 0.000003797313192411925
+        - cpu/utilization: 0.9
+          duration: 1
+          timestamp: '2024-03-31T16:38:39'
+          cpu/thermal-design-power: 100
+          cpu/energy: 0.0000038552730726626024

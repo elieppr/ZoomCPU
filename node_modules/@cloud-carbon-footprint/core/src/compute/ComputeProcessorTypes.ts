@@ -1,0 +1,88 @@
+/*
+ * © 2021 Thoughtworks, Inc.
+ */
+
+export enum COMPUTE_PROCESSOR_TYPES {
+  // CPU Processors
+  CASCADE_LAKE = 'Cascade Lake',
+  SKYLAKE = 'Skylake',
+  HASWELL = 'Haswell',
+  BROADWELL = 'Broadwell',
+  COFFEE_LAKE = 'Coffee Lake',
+  SANDY_BRIDGE = 'Sandy Bridge',
+  IVY_BRIDGE = 'Ivy Bridge',
+  ICELAKE = 'Ice Lake',
+  AMD_EPYC_1ST_GEN = 'AMD EPYC 1st Gen',
+  AMD_EPYC_2ND_GEN = 'AMD EPYC 2nd Gen',
+  AMD_EPYC_3RD_GEN = 'AMD EPYC 3rd Gen',
+  AWS_GRAVITON = 'AWS Graviton',
+  AWS_GRAVITON_2 = 'AWS Graviton2',
+  // GPU Processors
+  NVIDIA_K520 = 'Nvidia K520',
+  NVIDIA_A10G = 'Nvidia A10G',
+  NVIDIA_T4 = 'Nvidia T4',
+  NVIDIA_TESLA_M60 = 'Nvidia Tesla M60',
+  NVIDIA_TESLA_K80 = 'Nvidia Tesla K80',
+  NVIDIA_TESLA_V100 = 'Nvidia Tesla V100',
+  NVIDIA_TESLA_A100 = 'Nvidia Tesla A100',
+  NVIDIA_TESLA_P4 = 'Nvidia Tesla P4',
+  NVIDIA_TESLA_P40 = 'Nvidia Tesla P40',
+  NVIDIA_TESLA_P100 = 'Nvidia Tesla P100',
+  AMD_RADEON_PRO_V520 = 'AMD Radeon Pro V520',
+  XILINX_ALVEO_U250 = 'Xilinx Alveo U250',
+  // Unknown
+  UNKNOWN = 'Unknown',
+}
+
+export const cascadeLakeSkylake = [
+  COMPUTE_PROCESSOR_TYPES.CASCADE_LAKE,
+  COMPUTE_PROCESSOR_TYPES.SKYLAKE,
+]
+
+export const broadwellHaswell = [
+  COMPUTE_PROCESSOR_TYPES.HASWELL,
+  COMPUTE_PROCESSOR_TYPES.BROADWELL,
+]
+
+export const broadwellSkylake = [
+  COMPUTE_PROCESSOR_TYPES.BROADWELL,
+  COMPUTE_PROCESSOR_TYPES.SKYLAKE,
+]
+
+export const broadwelCascadeLake = [
+  COMPUTE_PROCESSOR_TYPES.BROADWELL,
+  COMPUTE_PROCESSOR_TYPES.CASCADE_LAKE,
+]
+
+export const cascadeLakeSkylakeBroadwellHaswell = [
+  COMPUTE_PROCESSOR_TYPES.CASCADE_LAKE,
+  COMPUTE_PROCESSOR_TYPES.SKYLAKE,
+  COMPUTE_PROCESSOR_TYPES.BROADWELL,
+  COMPUTE_PROCESSOR_TYPES.HASWELL,
+]
+
+export const cascadeLakeSkylakeBroadwell = [
+  COMPUTE_PROCESSOR_TYPES.CASCADE_LAKE,
+  COMPUTE_PROCESSOR_TYPES.SKYLAKE,
+  COMPUTE_PROCESSOR_TYPES.BROADWELL,
+]
+
+export const cascadeLakeHaswell = [
+  COMPUTE_PROCESSOR_TYPES.HASWELL,
+  COMPUTE_PROCESSOR_TYPES.CASCADE_LAKE,
+]
+
+export const skyLakeBroadwellHaswellAMDRome = [
+  COMPUTE_PROCESSOR_TYPES.SKYLAKE,
+  COMPUTE_PROCESSOR_TYPES.BROADWELL,
+  COMPUTE_PROCESSOR_TYPES.HASWELL,
+  COMPUTE_PROCESSOR_TYPES.AMD_EPYC_2ND_GEN,
+]
+
+export const skyLakeBroadwellHaswellSandyBridgeIvyBridge = [
+  COMPUTE_PROCESSOR_TYPES.SKYLAKE,
+  COMPUTE_PROCESSOR_TYPES.BROADWELL,
+  COMPUTE_PROCESSOR_TYPES.HASWELL,
+  COMPUTE_PROCESSOR_TYPES.SANDY_BRIDGE,
+  COMPUTE_PROCESSOR_TYPES.IVY_BRIDGE,
+]

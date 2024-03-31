@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.buildErrorMessage = void 0;
+/**
+ * Formats given error according to class instance, scope and message.
+ */
+const buildErrorMessage = (classInstanceName) => (params) => {
+    const { scope, message } = params;
+    return `${classInstanceName}${scope ? `(${scope})` : ''}: ${message}.`;
+};
+exports.buildErrorMessage = buildErrorMessage;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaGVscGVycy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy91dGlsL2hlbHBlcnMudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBRUE7O0dBRUc7QUFDSSxNQUFNLGlCQUFpQixHQUM1QixDQUFDLGlCQUF5QixFQUFFLEVBQUUsQ0FBQyxDQUFDLE1BQXlCLEVBQUUsRUFBRTtJQUMzRCxNQUFNLEVBQUMsS0FBSyxFQUFFLE9BQU8sRUFBQyxHQUFHLE1BQU0sQ0FBQztJQUVoQyxPQUFPLEdBQUcsaUJBQWlCLEdBQUcsS0FBSyxDQUFDLENBQUMsQ0FBQyxJQUFJLEtBQUssR0FBRyxDQUFDLENBQUMsQ0FBQyxFQUFFLEtBQUssT0FBTyxHQUFHLENBQUM7QUFDekUsQ0FBQyxDQUFDO0FBTFMsUUFBQSxpQkFBaUIscUJBSzFCIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHtFcnJvckZvcm1hdFBhcmFtc30gZnJvbSAnLi4vdHlwZXMvaGVscGVycyc7XG5cbi8qKlxuICogRm9ybWF0cyBnaXZlbiBlcnJvciBhY2NvcmRpbmcgdG8gY2xhc3MgaW5zdGFuY2UsIHNjb3BlIGFuZCBtZXNzYWdlLlxuICovXG5leHBvcnQgY29uc3QgYnVpbGRFcnJvck1lc3NhZ2UgPVxuICAoY2xhc3NJbnN0YW5jZU5hbWU6IHN0cmluZykgPT4gKHBhcmFtczogRXJyb3JGb3JtYXRQYXJhbXMpID0+IHtcbiAgICBjb25zdCB7c2NvcGUsIG1lc3NhZ2V9ID0gcGFyYW1zO1xuXG4gICAgcmV0dXJuIGAke2NsYXNzSW5zdGFuY2VOYW1lfSR7c2NvcGUgPyBgKCR7c2NvcGV9KWAgOiAnJ306ICR7bWVzc2FnZX0uYDtcbiAgfTtcbiJdfQ==
