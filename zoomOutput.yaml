@@ -17,54 +17,62 @@ tree:
       defaults:
         cpu/thermal-design-power: 100
       inputs:
-        - cpu/utilization: 34.5
+        - cpu/utilization: 4.3
           duration: 1
-          timestamp: '2024-04-01T17:19:34'
-        - cpu/utilization: 2.2
+          timestamp: '2024-04-01T18:03:59'
+        - cpu/utilization: 2.9
           duration: 1
-          timestamp: '2024-04-01T17:19:36'
-        - cpu/utilization: 5.2
+          timestamp: '2024-04-01T18:04:01'
+        - cpu/utilization: 1.8
           duration: 1
-          timestamp: '2024-04-01T17:19:38'
-        - cpu/utilization: 2
+          timestamp: '2024-04-01T18:04:03'
+        - cpu/utilization: 1.6
           duration: 1
-          timestamp: '2024-04-01T17:19:40'
-        - cpu/utilization: 8.2
+          timestamp: '2024-04-01T18:04:06'
+        - cpu/utilization: 1.7
           duration: 1
-          timestamp: '2024-04-01T17:19:42'
-        - cpu/utilization: 9.8
+          timestamp: '2024-04-01T18:04:08'
+        - cpu/utilization: 1.8
           duration: 1
-          timestamp: '2024-04-01T17:19:44'
+          timestamp: '2024-04-01T18:04:10'
+        - cpu/utilization: 6.5
+          duration: 1
+          timestamp: '2024-04-01T18:04:12'
       pipeline:
         - teads-curve
       outputs:
-        - cpu/utilization: 34.5
+        - cpu/utilization: 4.3
           duration: 1
-          timestamp: '2024-04-01T17:19:34'
+          timestamp: '2024-04-01T18:03:59'
           cpu/thermal-design-power: 100
-          cpu/energy: 0.000017670941173357042
-        - cpu/utilization: 2.2
+          cpu/energy: 0.000005808361338584012
+        - cpu/utilization: 2.9
           duration: 1
-          timestamp: '2024-04-01T17:19:36'
+          timestamp: '2024-04-01T18:04:01'
           cpu/thermal-design-power: 100
-          cpu/energy: 0.000004607007071815719
-        - cpu/utilization: 5.2
+          cpu/energy: 0.0000050097224866192405
+        - cpu/utilization: 1.8
           duration: 1
-          timestamp: '2024-04-01T17:19:38'
+          timestamp: '2024-04-01T18:04:03'
           cpu/thermal-design-power: 100
-          cpu/energy: 0.000006315463718157184
-        - cpu/utilization: 2
+          cpu/energy: 0.0000043761378333333335
+        - cpu/utilization: 1.6
           duration: 1
-          timestamp: '2024-04-01T17:19:40'
+          timestamp: '2024-04-01T18:04:06'
           cpu/thermal-design-power: 100
-          cpu/energy: 0.000004491631436314363
-        - cpu/utilization: 8.2
+          cpu/energy: 0.000004260538059620596
+        - cpu/utilization: 1.7
           duration: 1
-          timestamp: '2024-04-01T17:19:42'
+          timestamp: '2024-04-01T18:04:08'
           cpu/thermal-design-power: 100
-          cpu/energy: 0.000007954909388888888
-        - cpu/utilization: 9.8
+          cpu/energy: 0.00000431835048052168
+        - cpu/utilization: 1.8
           duration: 1
-          timestamp: '2024-04-01T17:19:44'
+          timestamp: '2024-04-01T18:04:10'
           cpu/thermal-design-power: 100
-          cpu/energy: 0.000008787315448509488
+          cpu/energy: 0.0000043761378333333335
+        - cpu/utilization: 6.5
+          duration: 1
+          timestamp: '2024-04-01T18:04:12'
+          cpu/thermal-design-power: 100
+          cpu/energy: 0.000007036698700033874
