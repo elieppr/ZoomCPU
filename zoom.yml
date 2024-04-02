@@ -16,26 +16,23 @@ tree:
       defaults:
         cpu/thermal-design-power: 100
       inputs:
-        - cpu/utilization: 1.1
+        - cpu/utilization: 34.5
           duration: 1
-          timestamp: '2024-03-31T16:38:27'
-        - cpu/utilization: 0.9
+          timestamp: '2024-04-01T17:19:34'
+        - cpu/utilization: 2.2
           duration: 1
-          timestamp: '2024-03-31T16:38:29'
-        - cpu/utilization: 0.8
+          timestamp: '2024-04-01T17:19:36'
+        - cpu/utilization: 5.2
           duration: 1
-          timestamp: '2024-03-31T16:38:31'
-        - cpu/utilization: 1.0
+          timestamp: '2024-04-01T17:19:38'
+        - cpu/utilization: 2.0
           duration: 1
-          timestamp: '2024-03-31T16:38:33'
-        - cpu/utilization: 0.9
+          timestamp: '2024-04-01T17:19:40'
+        - cpu/utilization: 8.2
           duration: 1
-          timestamp: '2024-03-31T16:38:35'
-        - cpu/utilization: 0.8
+          timestamp: '2024-04-01T17:19:42'
+        - cpu/utilization: 9.8
           duration: 1
-          timestamp: '2024-03-31T16:38:37'
-        - cpu/utilization: 0.9
-          duration: 1
-          timestamp: '2024-03-31T16:38:39'
+          timestamp: '2024-04-01T17:19:44'
       pipeline:
         - teads-curve

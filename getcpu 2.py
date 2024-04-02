@@ -102,7 +102,7 @@ def get_zoom_processes():
     all_processes = psutil.process_iter(['pid', 'name'])
     
     # Filter processes containing "Zoom" in their name
-    zoom_processes = [proc for proc in all_processes if "Zoom" in proc.info['name']]
+    zoom_processes = [proc for proc in all_processes if "zoom" in proc.info['name']]
     
     return zoom_processes
 
@@ -300,9 +300,9 @@ description2 = "Software can also be an enabler of climate solutions. Software c
 
 description3 = "The Green Software Foundation is a non-profit and has been created for the people who are in the business of building software. We are tasked with giving them answers about what they can do to reduce the software emissions they are responsible for"
     
-summary = "This is a summary of the carbon emission trend. The zoom meeting is from " + str(min_timestamp) + " to " + str(min_timestamp) + ". The carbon emission trend shows an increase in carbon emissions over time. The number of CPU cores used for the analysis is " + str(num_cores_os) + ". The total energy consumed during the meeting is " + str(total_energy) + "."
+summary = "Your zoom meeting lasted from " + str(min_timestamp) + " to " + str(min_timestamp) + ". During this time, the total carbon emissions were *** need watttime first"  + ". The total energy consumed during the meeting is " + str(total_energy) + "."
 
-machine_info = "You machine has Processor: " + processor_info + " Architecture: " + architecture[0] + " " + architecture[1]
+machine_info = "Here are some details about your machine: \n Processor: " + processor_info + "\nArchitecture: " + architecture[0] + " " + architecture[1] + "\nNumber of CPU cores: " + str(num_cores_os)
 
 with open(html_file, 'w') as f:
     f.write('<div style="display: flex; justify-content: space-between;">')  # Start of div with flex layout
