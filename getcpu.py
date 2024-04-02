@@ -206,15 +206,7 @@ if __name__ == "__main__":
     html_file = 'trend_plot.html'
     # fig.write_html(html_file)
 
-    # Append HTML content to the HTML file
-    with open(html_file, 'a') as f:
-        f.write('<div style="width: 100%; text-align: center;">')  # Start of div
-        f.write(fig.to_html(include_plotlyjs='cdn'))  # Plotly graph
-        f.write('<p style="margin-top: 20px;">This is a description of the carbon emission trend.</p>')  # Description paragraph
-        # f.write('<img src="image.jpg" alt="Image" style="width: 500px; margin-top: 20px;">')  # Image
-        f.write('</div>')  # End of div
-
-    delete_file("trend_plot.html")
+  
 current_directory = os.getcwd()
 imagefull_path1 = os.path.join(current_directory, 'caremission.png')
 imagefull_path2 = os.path.join(current_directory, 'phonecharge.png')
@@ -300,7 +292,7 @@ description2 = "Software can also be an enabler of climate solutions. Software c
 
 description3 = "The Green Software Foundation is a non-profit and has been created for the people who are in the business of building software. We are tasked with giving them answers about what they can do to reduce the software emissions they are responsible for"
     
-summary = "Your zoom meeting lasted from " + str(min_timestamp) + " to " + str(min_timestamp) + ". During this time, the total carbon emissions were *** need watttime first"  + ". The total energy consumed during the meeting is " + str(total_energy) + "."
+summary = "Your zoom meeting lasted from " + str(min_timestamp) + " to " + str(max_timestamp) + ". During this time, the total carbon emissions were *** need watttime first"  + ". The total energy consumed during the meeting is " + str(total_energy) + "."
 
 machine_info = "Here are some details about your machine: \n Processor: " + processor_info + "\nArchitecture: " + architecture[0] + " " + architecture[1] + "\nNumber of CPU cores: " + str(num_cores_os)
 
