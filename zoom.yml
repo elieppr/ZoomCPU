@@ -28,150 +28,20 @@ tree:
       defaults:
         cpu/thermal-design-power: 100
       inputs:
-        - cloud/instance-type: Standard_A1_v2
-          cloud/region: westus
+        - cloud/region: westus
           cloud/region-wt-id: CAISO_NORTH
-          cloud/vendor: azure
           cpu/thermal-design-power: 1000
-          cpu/utilization: 5.0
-          duration: 1
+          cpu/utilization: 2.7
+          duration: 10
           geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-04T17:53:46'
-        - cloud/instance-type: Standard_A1_v2
-          cloud/region: westus
+          timestamp: '2024-04-04T18:51:44'
+        - cloud/region: westus
           cloud/region-wt-id: CAISO_NORTH
-          cloud/vendor: azure
           cpu/thermal-design-power: 1000
-          cpu/utilization: 1.6
-          duration: 1
+          cpu/utilization: 2.6
+          duration: 10
           geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-04T17:53:57'
-        - cloud/instance-type: Standard_A1_v2
-          cloud/region: westus
-          cloud/region-wt-id: CAISO_NORTH
-          cloud/vendor: azure
-          cpu/thermal-design-power: 1000
-          cpu/utilization: 1.5
-          duration: 1
-          geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-04T17:54:08'
-        - cloud/instance-type: Standard_A1_v2
-          cloud/region: westus
-          cloud/region-wt-id: CAISO_NORTH
-          cloud/vendor: azure
-          cpu/thermal-design-power: 1000
-          cpu/utilization: 1.7
-          duration: 1
-          geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-04T17:54:19'
-        - cloud/instance-type: Standard_A1_v2
-          cloud/region: westus
-          cloud/region-wt-id: CAISO_NORTH
-          cloud/vendor: azure
-          cpu/thermal-design-power: 1000
-          cpu/utilization: 1.8
-          duration: 1
-          geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-04T17:54:30'
-        - cloud/instance-type: Standard_A1_v2
-          cloud/region: westus
-          cloud/region-wt-id: CAISO_NORTH
-          cloud/vendor: azure
-          cpu/thermal-design-power: 1000
-          cpu/utilization: 1.6
-          duration: 1
-          geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-04T17:54:41'
-        - cloud/instance-type: Standard_A1_v2
-          cloud/region: westus
-          cloud/region-wt-id: CAISO_NORTH
-          cloud/vendor: azure
-          cpu/thermal-design-power: 1000
-          cpu/utilization: 1.7
-          duration: 1
-          geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-04T17:54:52'
-        - cloud/instance-type: Standard_A1_v2
-          cloud/region: westus
-          cloud/region-wt-id: CAISO_NORTH
-          cloud/vendor: azure
-          cpu/thermal-design-power: 1000
-          cpu/utilization: 1.6
-          duration: 1
-          geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-04T17:55:03'
-        - cloud/instance-type: Standard_A1_v2
-          cloud/region: westus
-          cloud/region-wt-id: CAISO_NORTH
-          cloud/vendor: azure
-          cpu/thermal-design-power: 1000
-          cpu/utilization: 3.7
-          duration: 1
-          geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-04T17:55:14'
-        - cloud/instance-type: Standard_A1_v2
-          cloud/region: westus
-          cloud/region-wt-id: CAISO_NORTH
-          cloud/vendor: azure
-          cpu/thermal-design-power: 1000
-          cpu/utilization: 1.8
-          duration: 1
-          geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-04T17:55:25'
-        - cloud/instance-type: Standard_A1_v2
-          cloud/region: westus
-          cloud/region-wt-id: CAISO_NORTH
-          cloud/vendor: azure
-          cpu/thermal-design-power: 1000
-          cpu/utilization: 1.9
-          duration: 1
-          geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-04T17:55:36'
-        - cloud/instance-type: Standard_A1_v2
-          cloud/region: westus
-          cloud/region-wt-id: CAISO_NORTH
-          cloud/vendor: azure
-          cpu/thermal-design-power: 1000
-          cpu/utilization: 1.9
-          duration: 1
-          geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-04T17:55:47'
-        - cloud/instance-type: Standard_A1_v2
-          cloud/region: westus
-          cloud/region-wt-id: CAISO_NORTH
-          cloud/vendor: azure
-          cpu/thermal-design-power: 1000
-          cpu/utilization: 2.1
-          duration: 1
-          geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-04T17:55:58'
-        - cloud/instance-type: Standard_A1_v2
-          cloud/region: westus
-          cloud/region-wt-id: CAISO_NORTH
-          cloud/vendor: azure
-          cpu/thermal-design-power: 1000
-          cpu/utilization: 1.3
-          duration: 1
-          geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-04T17:56:09'
-        - cloud/instance-type: Standard_A1_v2
-          cloud/region: westus
-          cloud/region-wt-id: CAISO_NORTH
-          cloud/vendor: azure
-          cpu/thermal-design-power: 1000
-          cpu/utilization: 1.6
-          duration: 1
-          geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-04T17:56:20'
-        - cloud/instance-type: Standard_A1_v2
-          cloud/region: westus
-          cloud/region-wt-id: CAISO_NORTH
-          cloud/vendor: azure
-          cpu/thermal-design-power: 1000
-          cpu/utilization: 1.9
-          duration: 1
-          geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-04T17:56:31'
+          timestamp: '2024-04-04T18:51:56'
       pipeline:
         - teads-curve
         - watttime

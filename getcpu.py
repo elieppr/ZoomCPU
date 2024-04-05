@@ -73,8 +73,6 @@ def monitor_cpu_usage():
             input.append({"timestamp": time.strftime("%Y-%m-%dT%H:%M:%S"), 
                           "duration": 10, 
                           "cpu/thermal-design-power": 1000, 
-                          "cloud/instance-type": "Standard_A1_v2", 
-                          "cloud/vendor": "azure", 
                           "cloud/region": "westus", 
                           "cloud/region-wt-id": "CAISO_NORTH", 
                           "geolocation": "37.7749,-122.4194",
@@ -104,10 +102,12 @@ def get_zoom_processes():
     all_processes = psutil.process_iter(['pid', 'name'])
     
     # Filter processes containing "Zoom" in their name
-    if os.name == 'nt':
-        zoom_processes = [proc for proc in all_processes if "Zoom" in proc.info['name']]
-    else:   # For MacOS
-        zoom_processes = [proc for proc in all_processes if "zoom" in proc.info['name']]
+    # if os.name == 'nt':
+    #     zoom_processes = [proc for proc in all_processes if "Zoom" in proc.info['name']]
+    # else:   # For MacOS
+    #     zoom_processes = [proc for proc in all_processes if "zoom" in proc.info['name']]
+
+    zoom_processes = [proc for proc in all_processes if "zoom" in proc.info['name'].lower()]
     
     return zoom_processes
 
@@ -215,8 +215,8 @@ if __name__ == "__main__":
 
     # Read the CSV file
     df = pd.read_csv('zoomOutput.csv')
-    fig1 = create_plot('cpu/energy', 'Energy Consumption', 'Energy')
-    fig2 = create_plot('cpu/carbon', 'Carbon Emission', 'Carbon')
+    fig1 = create_plot('cpu/energy', 'Energy Consumption (kWh)', 'Energy')
+    fig2 = create_plot('cpu/carbon', 'Carbon Emission (gCO2)', 'Carbon')
 
   
 current_directory = os.getcwd()
@@ -249,7 +249,7 @@ max_timestamp = df['timestamp'].max()
 
 total_energy = df['cpu/energy'].sum()
 
-total_carbon = df['grid/carbon-intensity'].sum()
+total_carbon = df['cpu/carbon'].sum()
 
 # Save the plot as an HTML file
 html_file = 'trend_plot.html'
@@ -260,7 +260,7 @@ description2 = "Software can also be an enabler of climate solutions. Software c
 
 description3 = "The Green Software Foundation is a non-profit and has been created for the people who are in the business of building software. We are tasked with giving them answers about what they can do to reduce the software emissions they are responsible for"
     
-summary = "Your zoom meeting lasted from " + str(min_timestamp) + " to " + str(max_timestamp) + ". During this time, the total carbon emissions were *** need watttime first"  + ". The total carbon consumed during the meeting is " + str(total_carbon) + ", and the total energy consumed is " + str(total_energy) + ". "
+summary = "Your zoom meeting lasted from " + str(min_timestamp) + " to " + str(max_timestamp) + ". During this time, the total carbon emissions were *** need watttime first"  + ". The total carbon consumed during the meeting is " + str("{:.2f}".format(total_carbon)) + "gCO2, and the total energy consumed is " + str("{:.2f}".format(total_energy)) + "kWh. "
 
 machine_info = "Here are some details about your machine: \n Processor: " + processor_info + "\nArchitecture: " + architecture[0] + " " + architecture[1] + "\nNumber of CPU cores: " + str(num_cores_os)
 
