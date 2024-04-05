@@ -104,7 +104,10 @@ def get_zoom_processes():
     all_processes = psutil.process_iter(['pid', 'name'])
     
     # Filter processes containing "Zoom" in their name
-    zoom_processes = [proc for proc in all_processes if "zoom" in proc.info['name']]
+    if os.name == 'nt':
+        zoom_processes = [proc for proc in all_processes if "Zoom" in proc.info['name']]
+    else:   # For MacOS
+        zoom_processes = [proc for proc in all_processes if "zoom" in proc.info['name']]
     
     return zoom_processes
 
