@@ -1,0 +1,109 @@
+name: watt-time-demo
+description: null
+tags: null
+initialize:
+  plugins:
+    watttime:
+      path: '@grnsft/if-unofficial-plugins'
+      method: WattTimeGridEmissions
+  outputs:
+    - yaml
+if-version: v0.3.1
+tree:
+  children:
+    application:
+      config: null
+      inputs:
+        - cloud/instance-type: Standard_E64_v3
+          cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/vendor: azure
+          cpu/utilization: 2
+          duration: 1
+          timestamp: '2024-04-01T18:37:06'
+        - cloud/instance-type: Standard_E64_v3
+          cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/vendor: azure
+          cpu/utilization: 2.2
+          duration: 1
+          timestamp: '2024-04-01T18:37:08'
+        - cloud/instance-type: Standard_E64_v3
+          cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/vendor: azure
+          cpu/utilization: 1.9
+          duration: 1
+          timestamp: '2024-04-01T18:37:10'
+        - cloud/instance-type: Standard_E64_v3
+          cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/vendor: azure
+          cpu/utilization: 2.2
+          duration: 1
+          timestamp: '2024-04-01T18:37:12'
+        - cloud/instance-type: Standard_E64_v3
+          cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/vendor: azure
+          cpu/utilization: 2.3
+          duration: 1
+          timestamp: '2024-04-01T18:37:14'
+        - cloud/instance-type: Standard_E64_v3
+          cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/vendor: azure
+          cpu/utilization: 6.1
+          duration: 1
+          timestamp: '2024-04-01T18:37:16'
+      pipeline:
+        - watttime
+      outputs:
+        - cloud/instance-type: Standard_E64_v3
+          cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/vendor: azure
+          cpu/utilization: 2
+          duration: 1
+          timestamp: '2024-04-01T18:37:06'
+          grid/carbon-intensity: 0
+        - cloud/instance-type: Standard_E64_v3
+          cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/vendor: azure
+          cpu/utilization: 2.2
+          duration: 1
+          timestamp: '2024-04-01T18:37:08'
+          grid/carbon-intensity: 0
+        - cloud/instance-type: Standard_E64_v3
+          cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/vendor: azure
+          cpu/utilization: 1.9
+          duration: 1
+          timestamp: '2024-04-01T18:37:10'
+          grid/carbon-intensity: 0
+        - cloud/instance-type: Standard_E64_v3
+          cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/vendor: azure
+          cpu/utilization: 2.2
+          duration: 1
+          timestamp: '2024-04-01T18:37:12'
+          grid/carbon-intensity: 0
+        - cloud/instance-type: Standard_E64_v3
+          cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/vendor: azure
+          cpu/utilization: 2.3
+          duration: 1
+          timestamp: '2024-04-01T18:37:14'
+          grid/carbon-intensity: 0
+        - cloud/instance-type: Standard_E64_v3
+          cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/vendor: azure
+          cpu/utilization: 6.1
+          duration: 1
+          timestamp: '2024-04-01T18:37:16'
+          grid/carbon-intensity: 0
