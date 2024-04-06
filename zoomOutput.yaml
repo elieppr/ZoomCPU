@@ -31,17 +31,269 @@ tree:
         - cloud/region: westus
           cloud/region-wt-id: CAISO_NORTH
           cpu/thermal-design-power: 1000
-          cpu/utilization: 2.7
+          cpu/utilization: 3.1
           duration: 10
           geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-04T18:51:44'
+          timestamp: '2024-04-05T16:54:30'
         - cloud/region: westus
           cloud/region-wt-id: CAISO_NORTH
           cpu/thermal-design-power: 1000
-          cpu/utilization: 2.6
+          cpu/utilization: 3.7
           duration: 10
           geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-04T18:51:56'
+          timestamp: '2024-04-05T16:54:42'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.3
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:54:54'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.1
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:55:06'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:55:18'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.2
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:55:30'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:55:42'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.3000000000000003
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:55:54'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.4000000000000004
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:56:06'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.1
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:56:18'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.3
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:56:31'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.5
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:56:43'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.5
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:56:55'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.3000000000000003
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:57:07'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.4
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:57:19'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.4000000000000004
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:57:31'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.5
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:57:43'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.0999999999999996
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:57:55'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.5
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:58:07'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.3
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:58:19'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.4000000000000004
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:58:31'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:58:43'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.5
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:58:55'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.5
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:59:07'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.4000000000000004
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:59:19'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.1
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:59:31'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:59:43'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.5
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:59:55'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.0999999999999996
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T17:00:08'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 2.9
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T17:00:20'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.2
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T17:00:32'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 2.7
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T17:00:44'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 2.7
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T17:00:56'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.4000000000000004
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T17:01:08'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.1
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T17:01:20'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.0999999999999996
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T17:01:32'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.2
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T17:01:44'
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 2.8
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T17:01:56'
       pipeline:
         - teads-curve
         - watttime
@@ -49,18 +301,342 @@ tree:
         - cloud/region: westus
           cloud/region-wt-id: CAISO_NORTH
           cpu/thermal-design-power: 1000
+          cpu/utilization: 3.1
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:54:30'
+          cpu/energy: 0.0005124421283705963
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.7
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:54:42'
+          cpu/energy: 0.0005467373390413279
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.3
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:54:54'
+          cpu/energy: 0.0005238937231199186
+          grid/carbon-intensity: 1589.486224226856
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.1
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:55:06'
+          cpu/energy: 0.0005124421283705963
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:55:18'
+          cpu/energy: 0.000506709400406504
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.2
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:55:30'
+          cpu/energy: 0.0005181702850948509
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:55:42'
+          cpu/energy: 0.000506709400406504
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.3000000000000003
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:55:54'
+          cpu/energy: 0.0005238937231199186
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.4000000000000004
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:56:06'
+          cpu/energy: 0.0005296122949864499
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.1
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:56:18'
+          cpu/energy: 0.0005124421283705963
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.3
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:56:31'
+          cpu/energy: 0.0005238937231199186
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.5
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:56:43'
+          cpu/energy: 0.000535325853235095
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.5
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:56:55'
+          cpu/energy: 0.000535325853235095
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.3000000000000003
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:57:07'
+          cpu/energy: 0.0005238937231199186
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.4
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:57:19'
+          cpu/energy: 0.0005296122949864499
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.4000000000000004
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:57:31'
+          cpu/energy: 0.0005296122949864499
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.5
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:57:43'
+          cpu/energy: 0.000535325853235095
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.0999999999999996
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:57:55'
+          cpu/energy: 0.0005124421283705963
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.5
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:58:07'
+          cpu/energy: 0.000535325853235095
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.3
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:58:19'
+          cpu/energy: 0.0005238937231199186
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.4000000000000004
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:58:31'
+          cpu/energy: 0.0005296122949864499
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:58:43'
+          cpu/energy: 0.000506709400406504
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.5
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:58:55'
+          cpu/energy: 0.000535325853235095
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.5
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:59:07'
+          cpu/energy: 0.000535325853235095
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.4000000000000004
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:59:19'
+          cpu/energy: 0.0005296122949864499
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.1
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:59:31'
+          cpu/energy: 0.0005124421283705963
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:59:43'
+          cpu/energy: 0.000506709400406504
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.5
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T16:59:55'
+          cpu/energy: 0.000535325853235095
+          grid/carbon-intensity: 1556.96089287249
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.0999999999999996
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T17:00:08'
+          cpu/energy: 0.0005124421283705963
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 2.9
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T17:00:20'
+          cpu/energy: 0.0005009722486619241
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.2
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T17:00:32'
+          cpu/energy: 0.0005181702850948509
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
           cpu/utilization: 2.7
           duration: 10
           geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-04T18:51:44'
+          timestamp: '2024-04-05T17:00:44'
           cpu/energy: 0.0004894852636686992
           grid/carbon-intensity: 0
         - cloud/region: westus
           cloud/region-wt-id: CAISO_NORTH
           cpu/thermal-design-power: 1000
-          cpu/utilization: 2.6
+          cpu/utilization: 2.7
           duration: 10
           geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-04T18:51:56'
-          cpu/energy: 0.00048373572533875336
+          timestamp: '2024-04-05T17:00:56'
+          cpu/energy: 0.0004894852636686992
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.4000000000000004
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T17:01:08'
+          cpu/energy: 0.0005296122949864499
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.1
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T17:01:20'
+          cpu/energy: 0.0005124421283705963
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.0999999999999996
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T17:01:32'
+          cpu/energy: 0.0005124421283705963
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 3.2
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T17:01:44'
+          cpu/energy: 0.0005181702850948509
+          grid/carbon-intensity: 0
+        - cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cpu/thermal-design-power: 1000
+          cpu/utilization: 2.8
+          duration: 10
+          geolocation: 37.7749,-122.4194
+          timestamp: '2024-04-05T17:01:56'
+          cpu/energy: 0.0004952308205962059
           grid/carbon-intensity: 0

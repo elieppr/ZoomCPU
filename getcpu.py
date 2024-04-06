@@ -159,6 +159,44 @@ def create_plot(data_column, title, xtitle):
     )
     return fig
 
+def generate_csv():
+    import csv
+    from datetime import datetime, timedelta
+ 
+    with open("zoomOutput.yaml", "r") as file:
+        data = yaml.safe_load(file)
+        csvoutputs = data["tree"]["children"]["child-0"]["outputs"]
+ 
+        with open("zoomOutput.csv", "w", newline='') as file:
+            writer = csv.writer(file)
+            headers = list(csvoutputs[0].keys())
+            headers.append("cpu/carbon")  # Add a new column header
+            writer.writerow(headers)
+ 
+            prev_grid_carbon_intensity = None
+            prev_timestamp = None
+ 
+            for item in csvoutputs:
+                cpu_energy = item["cpu/energy"]
+                grid_carbon_intensity = item["grid/carbon-intensity"]
+                # Update previous non-zero grid_carbon_intensity and timestamp
+                if grid_carbon_intensity != 0:
+                    prev_grid_carbon_intensity = grid_carbon_intensity
+                    prev_timestamp = datetime.strptime(item["timestamp"], "%Y-%m-%dT%H:%M:%S")
+ 
+                # Check if grid_carbon_intensity is zero and if the previous non-zero value exists
+                if grid_carbon_intensity == 0 and prev_grid_carbon_intensity is not None:
+                    # Check if the difference in timestamps is less than 5 minutes
+                    if prev_timestamp and (datetime.strptime(item["timestamp"], "%Y-%m-%dT%H:%M:%S") - prev_timestamp) < timedelta(minutes=5):
+                    #if prev_timestamp and (item["timestamp"] - prev_timestamp) < timedelta(minutes=5):
+                        grid_carbon_intensity = prev_grid_carbon_intensity
+                        item["grid/carbon-intensity"] = grid_carbon_intensity
+                cpu_carbon = cpu_energy * grid_carbon_intensity  # Calculate cpu/carbon
+                item["cpu/carbon"] = cpu_carbon  # Add cpu/carbon to the item dictionary
+ 
+                writer.writerow(item.values())
+ 
+
 # Example usage
 if __name__ == "__main__":
     print("List of all running process names:")
@@ -195,22 +233,23 @@ if __name__ == "__main__":
         result = subprocess.run(command, capture_output=True, text=True)
  
     
-    with open("zoomOutput.yaml", "r") as file:
-        data = yaml.safe_load(file)
-        csvoutputs = data["tree"]["children"]["child-0"]["outputs"]
+    # with open("zoomOutput.yaml", "r") as file:
+    #     data = yaml.safe_load(file)
+    #     csvoutputs = data["tree"]["children"]["child-0"]["outputs"]
 
-        with open("zoomOutput.csv", "w", newline='') as file:
-            writer = csv.writer(file)
-            headers = list(csvoutputs[0].keys())
-            headers.append("cpu/carbon")  # Add a new column header
-            writer.writerow(headers)
+    #     with open("zoomOutput.csv", "w", newline='') as file:
+    #         writer = csv.writer(file)
+    #         headers = list(csvoutputs[0].keys())
+    #         headers.append("cpu/carbon")  # Add a new column header
+    #         writer.writerow(headers)
 
-            for item in csvoutputs:
-                cpu_energy = item["cpu/energy"]
-                grid_carbon_intensity = item["grid/carbon-intensity"]
-                cpu_carbon = cpu_energy * grid_carbon_intensity  # Calculate cpu/carbon
-                item["cpu/carbon"] = cpu_carbon  # Add cpu/carbon to the item dictionary
-                writer.writerow(item.values())
+    #         for item in csvoutputs:
+    #             cpu_energy = item["cpu/energy"]
+    #             grid_carbon_intensity = item["grid/carbon-intensity"]
+    #             cpu_carbon = cpu_energy * grid_carbon_intensity  # Calculate cpu/carbon
+    #             item["cpu/carbon"] = cpu_carbon  # Add cpu/carbon to the item dictionary
+    #             writer.writerow(item.values())
+    generate_csv()
 
 
     # Read the CSV file
@@ -247,9 +286,10 @@ df['timestamp'] = pd.to_datetime(df['timestamp'])
 min_timestamp = df['timestamp'].min()
 max_timestamp = df['timestamp'].max()
 
-total_energy = df['cpu/energy'].sum()
-
-total_carbon = df['cpu/carbon'].sum()
+#total_energy = df['cpu/energy'].sum()
+total_energy = (df['cpu/energy'].sum() - 0.5 * (df['cpu/energy'].iloc[0] + df['cpu/energy'].iloc[-1]))*10
+# total_carbon = df['cpu/carbon'].sum()
+total_carbon = (df['cpu/carbon'].sum() - 0.5 * (df['cpu/carbon'].iloc[0] + df['cpu/carbon'].iloc[-1]))*10
 
 # Save the plot as an HTML file
 html_file = 'trend_plot.html'
