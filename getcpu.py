@@ -10,13 +10,82 @@ import webbrowser
 import csv
 import multiprocessing
 import platform
+import cpuinfo
+import re
 
 class IndentDumper(yaml.Dumper):
     def increase_indent(self, flow=False, indentless=False):
         return super(IndentDumper, self).increase_indent(flow, False)
 
-import os
+# Compute the average TDP for a given dictionary of processors
+def compute_average_tdp(processor_dict):
+    total_tdp = 0
+    num_processors = 0
+    for processor, tdp in processor_dict.items():
+        total_tdp += tdp
+        num_processors += 1
+    average_tdp = total_tdp / num_processors
+    return average_tdp
 
+# Get the TDP value from a CSV file and the processor name
+def get_tdp_from_csv(csv_file, processor):
+    import csv
+    import re
+    # Initialize empty dictionaries for Intel, AMD, and Mac processors
+    intel_dict = {}
+    amd_dict = {}
+    mac_dict = {}
+
+    # Open the CSV file and build dictionaries for Intel, AMD, and Mac processors
+    with open(csv_file, newline='') as csvfile:
+        reader = csv.reader(csvfile, delimiter=',')
+        for row in reader:
+            processor_name = row[0].strip('"').replace('\r', '').replace('\r\n', '').replace('\n', '')
+            processor_value = int(row[1])
+            if processor_name:  # Check if processor_name is not empty        
+                if "Intel" in processor_name:
+                    intel_dict[processor_name] = processor_value
+                elif "AMD" in processor_name:
+                    amd_dict[processor_name] = processor_value
+                else:
+                    mac_dict[processor_name] = processor_value
+
+    # Check if the processor name contains "Intel", "AMD", or "M1" or "M2"
+    if (processor.find("Intel") != -1):
+        print("Intel found")
+        try:
+            # Regular expression pattern to match "Intel", "Core", and "i7-1265U"
+            pattern = r'\b(Intel|Core|i7-\d{4}[A-Za-z]*)\b'
+            # Extracting the desired substrings using regex
+            matches = re.findall(pattern, processor)
+            processorInfo = matches[0] + " " + matches[1] + " " + matches[2]
+        except:
+            print("Error: Processor not found in dictionary")
+            processorInfo = "Intel"
+        # Compute average TDP for Intel processors
+        avg_intel_tdp = compute_average_tdp(intel_dict)
+        
+        if processorInfo in intel_dict: 
+            print(f"TDP for {processorInfo}: {intel_dict[processorInfo]}")   
+            return {intel_dict[processorInfo]}
+        else:
+            print (f"Average TDP for Intel processors: {avg_intel_tdp}")
+            return {avg_intel_tdp}
+    # Check if the processor name contains "AMD"
+    if processor.find("AMD") != -1:
+        print("AMD found")
+        print ("average tdp for AMD processors: ", compute_average_tdp(amd_dict))
+        return {compute_average_tdp(amd_dict)}
+    # Check if the processor name contains "M1" or "M2"
+    if processor.find("M1") != -1 or processor.find("M2") != -1:
+        print("Mac found")
+        if (processor.find("M1") != -1):
+            return {mac_dict["M1"]}
+        elif (processor.find("M2") != -1):
+            return {mac_dict["M2"]}
+        else:
+            return {compute_average_tdp(mac_dict)}
+        
 def delete_file(file_path):
     # Check if the file exists, Delete the file if it exists
     if os.path.exists(file_path):
@@ -39,6 +108,11 @@ def monitor_cpu_usage():
     with open("zoombase.yml", "r") as f:
         data = yaml.safe_load(f)
 
+    # Get the CPU name and TDP value
+    cpu_name = cpuinfo.get_cpu_info()['brand_raw']
+    tdp = get_tdp_from_csv('CPU__TDP_by_popularity.csv', cpu_name)
+    print("TDP value:", tdp)
+    
     # Add the input data to the list
     while True:
         # Get a list of zoom processes information
@@ -67,11 +141,9 @@ def monitor_cpu_usage():
                 continue
 
         if total_cpu > 0:
-            import random ############################## recheck after TDP done
-            random_number = random.randint(50, 100)
             input.append({"timestamp": time.strftime("%Y-%m-%dT%H:%M:%S"), 
                           "duration": 10, 
-                          "cpu/thermal-design-power": 20, 
+                          "cpu/thermal-design-power": tdp, 
                           "cloud/region-wt-id": "CAISO_NORTH", 
                           "geolocation": "37.7749,-122.4194",
                           "cpu/utilization": total_cpu
