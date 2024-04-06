@@ -61,7 +61,10 @@ def monitor_cpu_usage():
             name = proc.info['name']
             try:
                 cpu_usage = get_process_cpu_usage(pid)
-                total_cpu += cpu_usage                
+                total_cpu += cpu_usage   
+                
+                if platform.system() == 'Darwin': # macOS
+                    total_cpu /= os.cpu_count()             
                 if cpu_usage is not None:
                     print("CPU usage of process '{}' (PID: {}): {:.2f}%".format(name, pid, cpu_usage))   
             except Exception as e:
@@ -72,7 +75,7 @@ def monitor_cpu_usage():
             random_number = random.randint(50, 100)
             input.append({"timestamp": time.strftime("%Y-%m-%dT%H:%M:%S"), 
                           "duration": 10, 
-                          "cpu/thermal-design-power": 1000, 
+                          "cpu/thermal-design-power": 20, 
                           "cloud/region": "westus", 
                           "cloud/region-wt-id": "CAISO_NORTH", 
                           "geolocation": "37.7749,-122.4194",
@@ -139,7 +142,7 @@ def create_plot(data_column, title, xtitle):
         title_x=0.5,  # Center the title
         xaxis_title='Time',
         yaxis_title= xtitle, #'Carbon',
-        width=1200,  # Set width to 50%
+        width=1100,  # Set width to 50%
         height=500,  # Set height to 50%
         margin=dict(l=50, r=50, t=50, b=50),  # Adjust margins to make space for the paragraph on the right
         shapes=[
@@ -261,7 +264,7 @@ if __name__ == "__main__":
 current_directory = os.getcwd()
 imagefull_path1 = os.path.join(current_directory, 'caremission.png')
 imagefull_path2 = os.path.join(current_directory, 'phonecharge.png')
-imagefull_path3 = os.path.join(current_directory, 'moofart.png')
+imagefull_path3 = os.path.join(current_directory, 'carbonatedDrink.png')
 
 another_image_full_path = os.path.join(current_directory, 'gsf.png')
 
@@ -293,48 +296,50 @@ total_carbon = (df['cpu/carbon'].sum() - 0.5 * (df['cpu/carbon'].iloc[0] + df['c
 
 # Save the plot as an HTML file
 html_file = 'trend_plot.html'
-
-description1 = "We want software to become part of the climate solution, rather than be part of the climate problem. This is why we are focusing on reducing the negative impacts of software on our climate by reducing the carbon emissions that software is responsible for emitting."
-
-description2 = "Software can also be an enabler of climate solutions. Software can be built to help accelerate decarbonization across all sectors in industry and society. We need people and organizations to focus on both aspects: of making green software and green-enabling software. But our primary focus is on creating an ecosystem for developing green software."
-
-description3 = "The Green Software Foundation is a non-profit and has been created for the people who are in the business of building software. We are tasked with giving them answers about what they can do to reduce the software emissions they are responsible for"
     
-summary = "Your zoom meeting lasted from " + str(min_timestamp) + " to " + str(max_timestamp) + ". During this time, the total carbon emissions were *** need watttime first"  + ". The total carbon consumed during the meeting is " + str("{:.2f}".format(total_carbon)) + "gCO2, and the total energy consumed is " + str("{:.2f}".format(total_energy)) + "kWh. "
+summary = "Your zoom meeting lasted from " + str(min_timestamp) + " to " + str(max_timestamp) + ". The total carbon consumed during the meeting is " + str("{:.2f}".format(total_carbon)) + " gCO2, and the total energy consumed is " + str("{:.2f}".format(total_energy)) + " kWh. "
 
 machine_info = "Here are some details about your machine: \n Processor: " + processor_info + "\nArchitecture: " + architecture[0] + " " + architecture[1] + "\nNumber of CPU cores: " + str(num_cores_os)
 
 with open(html_file, 'w') as f:
     f.write('<div style="display: flex; justify-content: space-between;">')  # Start of div with flex layout
     
-    f.write('<div style="width: 70%;">')  # Left side for the plot
+    f.write('<div style="width: 60%;">')  # Left side for the plot
     f.write(fig1.to_html(include_plotlyjs='cdn'))  # Plotly graph
     f.write(fig2.to_html(include_plotlyjs='cdn'))  # Plotly graph
     f.write('</div>')  # End of left div
 
+    #conversions for pictures
+    carbDrinks = total_carbon/2.5 ## source: https://www.sciencefocus.com/science/does-the-carbon-dioxide-released-from-fizzy-drinks-affect-the-atmosphere  
+    phoneCharge = total_energy*0.066 ## source: https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator#results 
+    carEmissionMiles = total_carbon*0.003 ## source: https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator#results
+    carEmissionsKm = carEmissionMiles*1.60934 ## source: https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator#results
+
 
 ####### ======================= right panel =======================
-    f.write('<div style="width: 25%;">')  # Right side for the paragraph
-    f.write('<div style="margin-right: 20px; text-align: center;">')  # Margin for spacing between images
-    f.write('<img src=' + imagefull_path1 + ' alt="Image" style="width: 380px; margin-top: 20px;">')  # Image 1
-    f.write('<p>Caption 1</p>')  # Caption for Image 1
-    f.write('</div>')  # End of div for Image 1
-
-    f.write('<div style="margin-right: 20px;">')  # Margin for spacing between images
-    f.write('<img src=' + imagefull_path2 + ' alt="Image" style="width: 380px; margin-top: 20px;">')  # Image 2
-    f.write('<p>Caption 2</p>')  # Caption for Image 2
-    f.write('</div>')  # End of div for Image 2
-
-    f.write('<div>')  # No margin for the last image
-    f.write('<img src=' + imagefull_path3 + ' alt="Image" style="width: 380px; margin-top: 20px;">')  # Image 3
-    f.write('<p>Caption 3</p>')  # Caption for Image 3
-    f.write('</div>')  # End of div for Image 3
-
-####### ======================= bottom panel =======================
+    f.write('<div style="width: 30%;">')  # Right side for the paragraph
     f.write('<div style="display: flex; justify-content: space-between;">')  # Start of div with flex layout
     f.write('<p style="margin-top: 20px; margin-right: 20px">' + summary + '</p>')  # Description paragraph adjusted 50px lower
     f.write('<p style="margin-top: 20px; margin-right: 10px">' + machine_info +'</p>')  # Description paragraph
     f.write('</div>')  # End of flex div
+
+    f.write('<div style="margin-right: 30px;">')  # Margin for spacing between images
+    f.write('<img src=' + imagefull_path1 + ' alt="Image" style="width: 380px; margin-top: 20px;">')  # Image 1
+    f.write('<p>This is equivalent to ' + str("{:.3f}".format(carEmissionsKm)) + ' Km (' + str("{:.3f}".format(carEmissionMiles)) + ' Miles) driven by an average gasoline-powered passenger vehicle.</p>')  # Caption for Image 1
+    f.write('</div>')  # End of div for Image 1
+
+    f.write('<div style="margin-right: 30px;">')  # Margin for spacing between images
+    f.write('<img src=' + imagefull_path2 + ' alt="Image" style="width: 380px; margin-top: 20px;">')  # Image 2
+    f.write('<p>This is equivalent to ' + str("{:.3f}".format(phoneCharge)) + ' smartphones charged.</p>')  # Caption for Image 2
+    f.write('</div>')  # End of div for Image 2
+
+    f.write('<div>')  # No margin for the last image
+    f.write('<img src=' + imagefull_path3 + ' alt="Image" style="width: 360px; margin-top: 20px;">')  # Image 3
+    f.write('<p>This is equivalent to emissions from ' + str("{:.3f}".format(carbDrinks)) + ' carbonated drinks.</p>')  # Caption for Image 3
+    f.write('</div>')  # End of div for Image 3
+
+####### ======================= bottom panel =======================
+
 
     f.write('</div>')  # End of flex div
 
