@@ -25,7 +25,7 @@ def compute_average_tdp(processor_dict):
         total_tdp += tdp
         num_processors += 1
     average_tdp = total_tdp / num_processors
-    return average_tdp
+    return int(average_tdp)
 
 # Get the TDP value from a CSV file and the processor name
 def get_tdp_from_csv(csv_file, processor):
@@ -50,7 +50,7 @@ def get_tdp_from_csv(csv_file, processor):
                 else:
                     mac_dict[processor_name] = processor_value
 
-    # Check if the processor name contains "Intel", "AMD", or "M1" or "M2"
+    # Check if the processor name contains "Intel"
     if (processor.find("Intel") != -1):
         print("Intel found")
         try:
@@ -67,24 +67,26 @@ def get_tdp_from_csv(csv_file, processor):
         
         if processorInfo in intel_dict: 
             print(f"TDP for {processorInfo}: {intel_dict[processorInfo]}")   
-            return {intel_dict[processorInfo]}
+            return intel_dict[processorInfo]
         else:
             print (f"Average TDP for Intel processors: {avg_intel_tdp}")
-            return {avg_intel_tdp}
+            return avg_intel_tdp
     # Check if the processor name contains "AMD"
-    if processor.find("AMD") != -1:
+    elif processor.find("AMD") != -1:
         print("AMD found")
         print ("average tdp for AMD processors: ", compute_average_tdp(amd_dict))
-        return {compute_average_tdp(amd_dict)}
+        return compute_average_tdp(amd_dict)
     # Check if the processor name contains "M1" or "M2"
-    if processor.find("M1") != -1 or processor.find("M2") != -1:
+    elif processor.find("M1") != -1 or processor.find("M2") != -1:
         print("Mac found")
         if (processor.find("M1") != -1):
-            return {mac_dict["M1"]}
+            return mac_dict["M1"]
         elif (processor.find("M2") != -1):
-            return {mac_dict["M2"]}
+            return mac_dict["M2"]
         else:
-            return {compute_average_tdp(mac_dict)}
+            return compute_average_tdp(mac_dict)
+    else:
+        return 95
         
 def delete_file(file_path):
     # Check if the file exists, Delete the file if it exists
@@ -112,7 +114,7 @@ def monitor_cpu_usage():
     cpu_name = cpuinfo.get_cpu_info()['brand_raw']
     tdp = get_tdp_from_csv('CPU__TDP_by_popularity.csv', cpu_name)
     print("TDP value:", tdp)
-    
+
     # Add the input data to the list
     while True:
         # Get a list of zoom processes information

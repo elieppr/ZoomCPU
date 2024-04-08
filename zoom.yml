@@ -25,88 +25,19 @@ tags: null
 tree:
   children:
     child-0:
-      defaults:
-        cpu/thermal-design-power: 100
       inputs:
         - cloud/region-wt-id: CAISO_NORTH
-          cpu/thermal-design-power: &id001 !!set
-            20: null
-          cpu/utilization: 0.275
+          cpu/thermal-design-power: 20
+          cpu/utilization: 0.1546875
           duration: 10
           geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-06T13:37:28'
+          timestamp: '2024-04-07T16:28:06'
         - cloud/region-wt-id: CAISO_NORTH
-          cpu/thermal-design-power: *id001
-          cpu/utilization: 0.2125
+          cpu/thermal-design-power: 20
+          cpu/utilization: 0.209375
           duration: 10
           geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-06T13:37:39'
-        - cloud/region-wt-id: CAISO_NORTH
-          cpu/thermal-design-power: *id001
-          cpu/utilization: 0.225
-          duration: 10
-          geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-06T13:37:50'
-        - cloud/region-wt-id: CAISO_NORTH
-          cpu/thermal-design-power: *id001
-          cpu/utilization: 0.175
-          duration: 10
-          geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-06T13:38:01'
-        - cloud/region-wt-id: CAISO_NORTH
-          cpu/thermal-design-power: *id001
-          cpu/utilization: 0.225
-          duration: 10
-          geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-06T13:38:12'
-        - cloud/region-wt-id: CAISO_NORTH
-          cpu/thermal-design-power: *id001
-          cpu/utilization: 0.1875
-          duration: 10
-          geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-06T13:38:23'
-        - cloud/region-wt-id: CAISO_NORTH
-          cpu/thermal-design-power: *id001
-          cpu/utilization: 0.225
-          duration: 10
-          geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-06T13:38:34'
-        - cloud/region-wt-id: CAISO_NORTH
-          cpu/thermal-design-power: *id001
-          cpu/utilization: 0.2125
-          duration: 10
-          geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-06T13:38:45'
-        - cloud/region-wt-id: CAISO_NORTH
-          cpu/thermal-design-power: *id001
-          cpu/utilization: 0.225
-          duration: 10
-          geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-06T13:38:57'
-        - cloud/region-wt-id: CAISO_NORTH
-          cpu/thermal-design-power: *id001
-          cpu/utilization: 0.2375
-          duration: 10
-          geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-06T13:39:08'
-        - cloud/region-wt-id: CAISO_NORTH
-          cpu/thermal-design-power: *id001
-          cpu/utilization: 0.2
-          duration: 10
-          geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-06T13:39:19'
-        - cloud/region-wt-id: CAISO_NORTH
-          cpu/thermal-design-power: *id001
-          cpu/utilization: 0.175
-          duration: 10
-          geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-06T13:39:30'
-        - cloud/region-wt-id: CAISO_NORTH
-          cpu/thermal-design-power: *id001
-          cpu/utilization: 0.225
-          duration: 10
-          geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-06T13:39:41'
+          timestamp: '2024-04-07T16:28:18'
       pipeline:
         - teads-curve
         - watttime
