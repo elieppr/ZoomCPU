@@ -1,16 +1,30 @@
-name: basic-demo
+name: project
 description: null
 tags: null
 initialize:
   plugins:
-    operational-carbon:
+    mock-observations:
       path: '@grnsft/if-plugins'
-      method: Multiply
+      method: MockObservations
       global-config:
-        input-parameters:
-          - cpu/energy
-          - grid/carbon-intensity
-        output-parameter: cpu/carbon
+        components:
+          - cloud/instance-type: Standard_E64_v3
+          - cloud/instance-type: Standard_E64_v4
+        duration: 60
+        generators:
+          common:
+            cloud/region: westus
+            cloud/region-wt-id: CAISO_NORTH
+            cloud/vendor: azure
+          randint:
+            cpu/utilization:
+              max: 99
+              min: 1
+        timestamp-from: '2024-04-01T00:00:00.000Z'
+        timestamp-to: '2024-04-01T00:10:00.000Z'
+    sci-o:
+      path: '@grnsft/if-plugins'
+      method: SciO
     teads-curve:
       path: '@grnsft/if-unofficial-plugins'
       method: TeadsCurve
@@ -24,25 +38,274 @@ initialize:
 if-version: v0.3.1
 tree:
   children:
-    child-0:
+    application:
+      config: null
       defaults:
-        cpu/thermal-design-power: 100
+        cpu/thermal-design-power: 15
+        geolocation: 43.22,-80.22
       inputs:
-        - cloud/region-wt-id: CAISO_NORTH
-          cpu/thermal-design-power: 20
-          cpu/utilization: 1.3875
-          duration: 10
-          geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-06T11:11:08'
+        - cpu/thermal-design-power: 15
+          cpu/utilization: 34.4
+          duration: 4
+          timestamp: 2024-04-07T21:50
+        - cpu/thermal-design-power: 15
+          cpu/utilization: 35.9
+          duration: 4
+          timestamp: 2024-04-07T21:50
+        - cpu/thermal-design-power: 15
+          cpu/utilization: 1.6
+          duration: 4
+          timestamp: 2024-04-07T21:50
+        - cpu/thermal-design-power: 15
+          cpu/utilization: 1.6
+          duration: 4
+          timestamp: 2024-04-07T21:50
+        - cpu/thermal-design-power: 15
+          cpu/utilization: 1.6
+          duration: 4
+          timestamp: 2024-04-07T21:50
+        - cpu/thermal-design-power: 15
+          cpu/utilization: 1.6
+          duration: 4
+          timestamp: 2024-04-07T21:50
+        - cpu/thermal-design-power: 15
+          cpu/utilization: 3.2
+          duration: 4
+          timestamp: 2024-04-07T21:50
+        - cpu/thermal-design-power: 15
+          cpu/utilization: 3.1
+          duration: 4
+          timestamp: 2024-04-07T21:50
+        - cpu/thermal-design-power: 15
+          cpu/utilization: 1.6
+          duration: 4
+          timestamp: 2024-04-07T21:50
+        - cpu/thermal-design-power: 15
+          cpu/utilization: 1.6
+          duration: 4
+          timestamp: 2024-04-07T21:50
       pipeline:
         - teads-curve
+        - mock-observations
         - watttime
       outputs:
-        - cloud/region-wt-id: CAISO_NORTH
-          cpu/thermal-design-power: 20
-          cpu/utilization: 1.3875
-          duration: 10
-          geolocation: 37.7749,-122.4194
-          timestamp: '2024-04-06T11:11:08'
-          cpu/energy: 0.000008275220326936055
-          grid/carbon-intensity: 0
+        - timestamp: 2024-04-07T21:50
+          duration: 4
+          cloud/instance-type: Standard_E64_v3
+          cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/vendor: azure
+          cpu/utilization: 34.4
+          cpu/thermal-design-power: 15
+          geolocation: 43.22,-80.22
+          cpu/energy: 0.000010587953278048781
+          grid/carbon-intensity: 2070.108114696988
+        - timestamp: 2024-04-07T21:50
+          duration: 4
+          cloud/instance-type: Standard_E64_v3
+          cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/vendor: azure
+          cpu/utilization: 34.4
+          cpu/thermal-design-power: 15
+          geolocation: 43.22,-80.22
+          cpu/energy: 0.000010587953278048781
+          grid/carbon-intensity: 2070.108114696988
+        - timestamp: 2024-04-07T21:50
+          duration: 4
+          cloud/instance-type: Standard_E64_v3
+          cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/vendor: azure
+          cpu/utilization: 34.4
+          cpu/thermal-design-power: 15
+          geolocation: 43.22,-80.22
+          cpu/energy: 0.000010587953278048781
+          grid/carbon-intensity: 2070.108114696988
+        - timestamp: 2024-04-07T21:50
+          duration: 4
+          cloud/instance-type: Standard_E64_v3
+          cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/vendor: azure
+          cpu/utilization: 34.4
+          cpu/thermal-design-power: 15
+          geolocation: 43.22,-80.22
+          cpu/energy: 0.000010587953278048781
+          grid/carbon-intensity: 2070.108114696988
+        - timestamp: 2024-04-07T21:50
+          duration: 4
+          cloud/instance-type: Standard_E64_v3
+          cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/vendor: azure
+          cpu/utilization: 34.4
+          cpu/thermal-design-power: 15
+          geolocation: 43.22,-80.22
+          cpu/energy: 0.000010587953278048781
+          grid/carbon-intensity: 2070.108114696988
+        - timestamp: 2024-04-07T21:50
+          duration: 4
+          cloud/instance-type: Standard_E64_v3
+          cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/vendor: azure
+          cpu/utilization: 34.4
+          cpu/thermal-design-power: 15
+          geolocation: 43.22,-80.22
+          cpu/energy: 0.000010587953278048781
+          grid/carbon-intensity: 2070.108114696988
+        - timestamp: 2024-04-07T21:50
+          duration: 4
+          cloud/instance-type: Standard_E64_v3
+          cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/vendor: azure
+          cpu/utilization: 34.4
+          cpu/thermal-design-power: 15
+          geolocation: 43.22,-80.22
+          cpu/energy: 0.000010587953278048781
+          grid/carbon-intensity: 2070.108114696988
+        - timestamp: 2024-04-07T21:50
+          duration: 4
+          cloud/instance-type: Standard_E64_v3
+          cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/vendor: azure
+          cpu/utilization: 34.4
+          cpu/thermal-design-power: 15
+          geolocation: 43.22,-80.22
+          cpu/energy: 0.000010587953278048781
+          grid/carbon-intensity: 2070.108114696988
+        - timestamp: 2024-04-07T21:50
+          duration: 4
+          cloud/instance-type: Standard_E64_v3
+          cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/vendor: azure
+          cpu/utilization: 34.4
+          cpu/thermal-design-power: 15
+          geolocation: 43.22,-80.22
+          cpu/energy: 0.000010587953278048781
+          grid/carbon-intensity: 2070.108114696988
+        - timestamp: 2024-04-07T21:50
+          duration: 4
+          cloud/instance-type: Standard_E64_v3
+          cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/vendor: azure
+          cpu/utilization: 34.4
+          cpu/thermal-design-power: 15
+          geolocation: 43.22,-80.22
+          cpu/energy: 0.000010587953278048781
+          grid/carbon-intensity: 2070.108114696988
+        - timestamp: 2024-04-07T21:50
+          duration: 4
+          cloud/instance-type: Standard_E64_v4
+          cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/vendor: azure
+          cpu/utilization: 34.4
+          cpu/thermal-design-power: 15
+          geolocation: 43.22,-80.22
+          cpu/energy: 0.000010587953278048781
+          grid/carbon-intensity: 2070.108114696988
+        - timestamp: 2024-04-07T21:50
+          duration: 4
+          cloud/instance-type: Standard_E64_v4
+          cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/vendor: azure
+          cpu/utilization: 34.4
+          cpu/thermal-design-power: 15
+          geolocation: 43.22,-80.22
+          cpu/energy: 0.000010587953278048781
+          grid/carbon-intensity: 2070.108114696988
+        - timestamp: 2024-04-07T21:50
+          duration: 4
+          cloud/instance-type: Standard_E64_v4
+          cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/vendor: azure
+          cpu/utilization: 34.4
+          cpu/thermal-design-power: 15
+          geolocation: 43.22,-80.22
+          cpu/energy: 0.000010587953278048781
+          grid/carbon-intensity: 2070.108114696988
+        - timestamp: 2024-04-07T21:50
+          duration: 4
+          cloud/instance-type: Standard_E64_v4
+          cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/vendor: azure
+          cpu/utilization: 34.4
+          cpu/thermal-design-power: 15
+          geolocation: 43.22,-80.22
+          cpu/energy: 0.000010587953278048781
+          grid/carbon-intensity: 2070.108114696988
+        - timestamp: 2024-04-07T21:50
+          duration: 4
+          cloud/instance-type: Standard_E64_v4
+          cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/vendor: azure
+          cpu/utilization: 34.4
+          cpu/thermal-design-power: 15
+          geolocation: 43.22,-80.22
+          cpu/energy: 0.000010587953278048781
+          grid/carbon-intensity: 2070.108114696988
+        - timestamp: 2024-04-07T21:50
+          duration: 4
+          cloud/instance-type: Standard_E64_v4
+          cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/vendor: azure
+          cpu/utilization: 34.4
+          cpu/thermal-design-power: 15
+          geolocation: 43.22,-80.22
+          cpu/energy: 0.000010587953278048781
+          grid/carbon-intensity: 2070.108114696988
+        - timestamp: 2024-04-07T21:50
+          duration: 4
+          cloud/instance-type: Standard_E64_v4
+          cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/vendor: azure
+          cpu/utilization: 34.4
+          cpu/thermal-design-power: 15
+          geolocation: 43.22,-80.22
+          cpu/energy: 0.000010587953278048781
+          grid/carbon-intensity: 2070.108114696988
+        - timestamp: 2024-04-07T21:50
+          duration: 4
+          cloud/instance-type: Standard_E64_v4
+          cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/vendor: azure
+          cpu/utilization: 34.4
+          cpu/thermal-design-power: 15
+          geolocation: 43.22,-80.22
+          cpu/energy: 0.000010587953278048781
+          grid/carbon-intensity: 2070.108114696988
+        - timestamp: 2024-04-07T21:50
+          duration: 4
+          cloud/instance-type: Standard_E64_v4
+          cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/vendor: azure
+          cpu/utilization: 34.4
+          cpu/thermal-design-power: 15
+          geolocation: 43.22,-80.22
+          cpu/energy: 0.000010587953278048781
+          grid/carbon-intensity: 2070.108114696988
+        - timestamp: 2024-04-07T21:50
+          duration: 4
+          cloud/instance-type: Standard_E64_v4
+          cloud/region: westus
+          cloud/region-wt-id: CAISO_NORTH
+          cloud/vendor: azure
+          cpu/utilization: 34.4
+          cpu/thermal-design-power: 15
+          geolocation: 43.22,-80.22
+          cpu/energy: 0.000010587953278048781
+          grid/carbon-intensity: 2070.108114696988

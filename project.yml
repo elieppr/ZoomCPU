@@ -1,0 +1,69 @@
+# name: sci-o
+# description:
+# tags:
+# initialize:
+#   plugins:
+#     sci-o:
+#       method: SciO
+#       path: '@grnsft/if-plugins'
+# tree:
+#   children:
+#     child:
+#       pipeline:
+#         - sci-o
+#       config:
+#         sci-o:
+#       inputs:
+#         - timestamp: 2023-08-06T00:00
+#           duration: 3600
+#           energy: 0.001
+#           grid/carbon-intensity: 800
+
+name: project
+description: null
+tags: null
+initialize:
+  outputs: ['yaml']
+  plugins:
+    mock-observations:
+      path: "@grnsft/if-plugins"
+      method: MockObservations
+      global-config:
+        timestamp-from: "2024-04-01T00:00:00.000Z"
+        timestamp-to: "2024-04-01T00:10:00.000Z"
+        duration: 60
+        components:
+          - cloud/instance-type: Standard_E64_v3
+          - cloud/instance-type: Standard_E64_v4
+        generators:
+          common:
+            cloud/vendor: azure
+            cloud/region: westus
+            cloud/region-wt-id: CAISO_NORTH
+          randint:
+            cpu/utilization:
+              min: 1
+              max: 99
+    teads-curve: 
+      path: '@grnsft/if-unofficial-plugins'
+      method: TeadsCurve
+      global-config:
+        interpolation: spline
+    watttime:
+      path: "@grnsft/if-unofficial-plugins"
+      method: WattTimeGridEmissions
+    sci-o:
+      method: SciO
+      path: '@grnsft/if-plugins'
+tree:
+  children:
+    application:
+      defaults:
+        cpu/thermal-design-power: 15
+        geolocation: '43.22,-80.22'
+      pipeline:
+        - teads-curve
+        - mock-observations
+        - watttime
+      config:
+      inputs:
