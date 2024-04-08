@@ -60,7 +60,7 @@ def get_tdp_from_csv(csv_file, processor):
             matches = re.findall(pattern, processor)
             processorInfo = matches[0] + " " + matches[1] + " " + matches[2]
         except:
-            print("Error: Processor not found in dictionary")
+            print("Processor not found in dictionary, using average TDP for Intel processors")
             processorInfo = "Intel"
         # Compute average TDP for Intel processors
         avg_intel_tdp = compute_average_tdp(intel_dict)
@@ -209,15 +209,17 @@ def create_plot(data_column, title, xtitle, df):
     )
     return fig
 
-def generate_csv():
+def generate_csv(zoomOutput='zoomOutput.yaml', csvOutput='zoomOutput.csv'):
     import csv
     from datetime import datetime, timedelta
+    print (zoomOutput, csvOutput)
+
     # Read the YAML file
-    with open("zoomOutput.yaml", "r") as file:
+    with open(zoomOutput, "r") as file:
         data = yaml.safe_load(file)
         csvoutputs = data["tree"]["children"]["child-0"]["outputs"]
         # Write the data to a CSV file
-        with open("zoomOutput.csv", "w", newline='') as file:
+        with open(csvOutput, "w", newline='') as file:
             writer = csv.writer(file)
             headers = list(csvoutputs[0].keys())
             headers.append("cpu/carbon")  # Add a new column header
@@ -343,19 +345,25 @@ if __name__ == "__main__":
         # Call the command using subprocess.run()
         result = subprocess.run(command, capture_output=True, text=True)
 
-    generate_csv()
+    # Check if the command was successful
+    if result.returncode == 0:
+        print("Command executed successfully.")
+        print("Output:")
+        print(result.stdout)
 
-    # Generate and save the plot as an HTML file
-    html_file = 'trend_plot.html'
-    generate_html(html_file=html_file)
+        # Generate the CSV file from the output YAML file
+        generate_csv("zoomOutput.yaml", "zoomOutput.csv")
 
-    # Get the current working directory
-    current_directory = os.getcwd()
-    full_path = os.path.join(current_directory, html_file)
+        # Generate and save the plot as an HTML file
+        html_file = 'trend_plot.html'
+        generate_html(html_file=html_file)
 
-    # Open the HTML file in a web browser
-    webbrowser.open('file://' + full_path)
+        # Get the current working directory
+        current_directory = os.getcwd()
+        full_path = os.path.join(current_directory, html_file)
 
-
-
-
+        # Open the HTML file in a web browser
+        webbrowser.open('file://' + full_path)
+    else:
+        print("Error executing the command:")
+        print(result.stderr)
