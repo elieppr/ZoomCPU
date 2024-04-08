@@ -1,19 +1,18 @@
 # ZoomCPU
 Hackathon for Green Software Foundation
 
-In this Hackathon project we implement python which can take the cpu of Zoom meeting convert to cpu energy and carbon emission during the zoom meeting, for both Windows and Mac OS
+In this Hackathon project we used python to get the cpu of a Zoom meeting and convert it to energy and carbon emissions during a zoom meeting, for both Windows and Mac OS
 
-## There are two basic functionlity:
-## getcpu.py: get the cpu usage of Zoom and disply the cpu/energy, cpu/carbon in a html file:
+## There are two basic functionalities:
+## getcpu.py: get the cpu usage of Zoom and display the cpu/energy, cpu/carbon in an html file:
     - get the Zoom process and the CPU using psutil
-    - combine the cpu usage with predefined manifest "zoombase.yml" create a new manifest input file: zoom.yml
-    - invoke IF framework (calling ie --manifest zoombase.yml --out zoomOutput) create output zoomOutput.ymal
-    - extract zoomOutput.ymal file output and convert to zoomOutput.csv file
-    - A html file is generated based on the data in zoomOutput.csv and automatically display in the browser
-    - the html file contains plot of cpu/energy vs timestamp and cpu/carbon vs timestamp together with total carbon consumption.
+    - combine the cpu usage with the predefined manifest "zoombase.yml" and create a new manifest input file: zoom.yml
+    - invoke IF framework (calling ie --manifest zoombase.yml --out zoomOutput) create output zoomOutput.yaml
+    - extract zoomOutput.yaml file output and convert to zoomOutput.csv file
+    - generate an html file based on the data in zoomOutput.csv and automatically display it in the browser. The html file contains a plot of cpu/energy vs timestamp and cpu/carbon vs timestamp together with total carbon consumption.
 
 ## backgroundnotifs.py: send a python notification when the Zoom meeting carbon emission is over the threshold you defind.
-    Similar to the above, for every minute, instead of generate a html file, send a notification if cabon exceed the threashold in minigram. This one can be run in the background together with above 
+    Similar to above, but for every minute, and instead of generating an html file, it sends a notification if carbon exceeds the threshold, measured in milligrams. This one can be run in the background or together with the above functionality as well.
 
 ## Getting started:
 ```sh
