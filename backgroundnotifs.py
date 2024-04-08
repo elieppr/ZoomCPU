@@ -17,7 +17,7 @@ def send_notification(title, message):
             app_name="Zoom",
             timeout=10  # Notification will stay for 10 seconds
         )
-    else: # if the OS is MacOS
+    else: # if the OS is MacOSç
         # Define the command as a string
         script = f'display notification "{message}" with title "{title}"'
         # Call the command using subprocess.run()
@@ -96,7 +96,7 @@ if __name__ == "__main__":
         # Monitor the CPU usage
         monitor_cpu_usage()
 
-        # switch between Windows and MacOS
+        
         if os.name == 'nt':
             ###------ Windows ------###
             print('Running command: ie --manifest .\\zoomNotification.yml --output .\\zoomNotificationOutput')
